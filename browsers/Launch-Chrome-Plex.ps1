@@ -13,13 +13,17 @@ The product to open (`UX` or `Classic`); defaults to `UX`
 
 .PARAMETER CompanyCode
 The company code, used to generate customer-specific URLs for UX
+
+.PARAMETER BlankProfile
+If set, uses a blank profile rather than copying the Default profile
 #>
 
 [CmdletBinding()]
 Param(
   [ValidateSet("UX", "Classic")]
   [string]$Product = "UX",
-  [string]$CompanyCode = ""
+  [string]$CompanyCode = "",
+  [switch]$BlankProfile = $false
 )
 
 $userData = Join-Path $env:LOCALAPPDATA "\Google\Chrome\User Data\";
@@ -31,7 +35,11 @@ $unixEpoch = (Get-Date 1970-01-01Z).ToUniversalTime();
 $id = [System.Math]::Round([System.DateTime]::Now.ToUniversalTime().Subtract($unixEpoch).TotalSeconds);
 $newDataDir = ($userData + "TempPlexProfile" + $id);
 
-Copy-Item -Path ($userData + "Default\") -Destination $newDataDir -Recurse;
+if ($BlankProfile) {
+  mkdir $newDataDir > $null;
+} else {
+  Copy-Item -Path ($userData + "Default\") -Destination $newDataDir -Recurse;
+}
 
 if ($Product -eq "Classic") {
   $url = "https://www.plexonline.com/signon";
