@@ -14,3 +14,4 @@ To use, download the PowerShell script to the machine and create a shortcut to i
 |`.\Launch-Chrome-Plex.ps1 -Product UX -CompanyCode edgeent` | Company-specific UX session for Edge Enterprises |
 |`.\Launch-Chrome-Plex.ps1 -Product Classic` | Classic session |
 
+In addition, you can set the flag `-BlankProfile` to avoid copying the Chrome Default profile. This will remove any favorites, plugins, and other customization from the new session, but does significantly cut down on launch time.
