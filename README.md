@@ -19,6 +19,6 @@ PowerShell is a replacement for the Command Prompt in Windows. Windows PowerShel
 
 To invoke a PowerShell script, download it from this repository. Advanced users may use `git clone` to pull the entire repository, but you can also download individual files by nagivating to them, clicking the `Raw` button in the top right corner of the page, and downloading the content that appears.
 
-Once the file exists on your machine, create a shortcut to it. For the shortcut path, enter `powershell.exe -ExecutionPolicy Bypass -File ""`, where the path to the script is in quotes.
+Once the file exists on your machine, create a shortcut to it. For the shortcut path, enter `powershell.exe -ExecutionPolicy Bypass -File ""`, where the path to the script is in quotes. If you wish to pass in additional parameters, you can do so by appending them to the end of the shortcut path: `powershell.exe -ExecutionPolicy Bypass -File "" -Product Classic -CompanyCode edgeent`.
 
 If upon launching your shortcut, nothing happens, try appending `-noexit` after `powershell.exe` to read the error message that appears.
