@@ -14,6 +14,8 @@ To use, download the PowerShell script to the machine and create a shortcut to i
 |`.\Launch-Chrome-Plex.ps1 -Product UX -CompanyCode edgeent` | Company-specific UX session for Edge Enterprises |
 |`.\Launch-Chrome-Plex.ps1 -Product Classic` | Classic session |
 
+In addition, you can set the flag `-BlankProfile` to avoid copying the Chrome Default profile. This will remove any favorites, plugins, and other customization from the new session, but does significantly cut down on launch time.
+
 ## Using the Scripts
 PowerShell is a replacement for the Command Prompt in Windows. Windows PowerShell has been installed by default since Windows 7. Versions of Windows back to XP can install PowerShell manually. A cross-platform version of PowerShell, previously called PowerShell Core, also exists for Windows, MacOS, and Linux. All scripts are confirmed to work under both Windows PowerShell (`powershell.exe`) and the cross-platform PowerShell (`pwsh.exe`).
 
